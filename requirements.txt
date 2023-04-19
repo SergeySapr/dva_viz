@@ -4,4 +4,4 @@ pandas
 plotly
 pickleshare
 textstat
-sklearn.linear_model
+scikit-learn
