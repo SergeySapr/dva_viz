@@ -6,7 +6,7 @@ import os
 from random import sample
 import textstat
 import pickle
-import sklearn.linear_model
+import sklearn
 
 #@st.cache_data
 def load_data(path):
