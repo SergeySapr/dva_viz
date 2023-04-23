@@ -6,7 +6,7 @@ import os
 from random import sample
 import textstat
 import pickle
-import sklearn.linear_model
+#import sklearn.linear_model
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize
@@ -135,7 +135,7 @@ def run_sentiment(txt):
     return polarity, subjectivity
 
 #data loading part
-st.cache_data
+@st.cache_data
 def load_data(path):
     samples = []
     models = []
