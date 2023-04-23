@@ -1,6 +1,8 @@
 markdown-it-py==2.2.0
 matplotlib
 pandas
+click==7.1.2
+typer=0.3.2
 plotly
 pickleshare
 statsmodels
@@ -9,4 +11,4 @@ nltk
 textblob
 spacy==3.0.0
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0-py3-none-any.whl
-click==7.1.2
+
