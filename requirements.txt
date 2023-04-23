@@ -8,3 +8,4 @@ textstat
 scikit-learn
 nltk
 textblob
+spacy
