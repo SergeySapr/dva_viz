@@ -175,6 +175,14 @@ if platform_option == 'Yelp':
         'What is the industry of the business you are reviewing?',
         ('Hotel', 'Cinema', 'Restaurant'))
 
+time_on_first_page = st.slider("Time the review spends on 1st page", min_value=1, max_value=1000, value=100, step=10)
+st.write("""Since our model's prediction depends on how much time your review spends on the 1st page (where other users 
+            are more likely to see it), you can vary that parameter here""")
+
+star_rating = st.slider("How many stars would you give to this establishment?", min_value = 0, max_value = 5, value =3, step = 1)
+st.write("""Another important input is how many stars will you give in your review (yes, that impacts how helpful people consider
+a review to be, all else being equal)""")
+
 if txt > "":
     #st.write("Length of text entered", len(txt), "Industry:",industry_option)
     #if platform_option == 'Tripadvisor':
@@ -209,8 +217,8 @@ if txt > "":
     #assemble current datapoint
     cur = pd.DataFrame()
     cur_dict_stars = {
-    'first_page_exposure':np.random.rand()*100,
-    'stars': 3,
+    'first_page_exposure':time_on_first_page,
+    'stars': star_rating,
     'polarity':cur_polarity,
     'subjectivity':cur_subjectivity,
     'GunningFog':cur_gunning,
@@ -227,7 +235,7 @@ if txt > "":
     'time_group':freq_list["time_words"],
     'venue_group':freq_list["venue_words"]}
     cur_dict_no_stars = {
-    'first_page_exposure':np.random.rand()*100,
+    'first_page_exposure':time_on_first_page,
     'polarity':cur_polarity,
     'subjectivity':cur_subjectivity,
     'GunningFog':cur_gunning,
@@ -296,6 +304,13 @@ if txt > "":
     xaxis_title="Reading time score",
     yaxis_title="Predicted helpfulness probability")
     st.plotly_chart(fig, use_container_width=True)
+    
+    st.write("""Ways to improve readability:
+\n Review your writing for spelling issues – incorrectly spelled words can trip up  a reader, and cause them to spend time thinking about what you meant to  write rather than your actual message
+\n Be specific – Tell the reader WHY you did or did not enjoy your experience.  Include a few key details that show why you would (or would not) recommend they visit this establishment.
+\n Be concise and stay on topic - focus on the aspects of your experience that  would matter most to the reader, such as the quality of service you 
+experienced.""")
+    
     
     #SENTIMENT
     st.subheader("Sentiment stats")
