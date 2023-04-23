@@ -2,7 +2,6 @@ markdown-it-py==2.2.0
 matplotlib
 pandas
 click==7.1.2
-typer=0.3.2
 plotly
 pickleshare
 statsmodels
