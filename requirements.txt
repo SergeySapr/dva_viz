@@ -5,3 +5,5 @@ plotly
 pickleshare
 textstat
 scikit-learn
+nltk
+textblob
