@@ -175,13 +175,13 @@ if platform_option == 'Yelp':
         'What is the industry of the business you are reviewing?',
         ('Hotel', 'Cinema', 'Restaurant'))
 
-time_on_first_page = st.slider("Time the review spends on 1st page", min_value=1, max_value=1000, value=100, step=10)
+time_on_first_page = st.slider("Time the review spends on 1st page (days)", min_value=1, max_value=1000, value=100, step=10)
 st.write("""Since our model's prediction depends on how much time your review spends on the 1st page (where other users 
             are more likely to see it), you can vary that parameter here""")
 
 star_rating = st.slider("How many stars would you give to this establishment?", min_value = 0, max_value = 5, value =3, step = 1)
 st.write("""Another important input is how many stars will you give in your review (yes, that impacts how helpful people consider
-a review to be, all else being equal)""")
+a review to be, all else being equal). Interestingly, it's usually the reviews with lower rating that are considered more helpful.""")
 
 if txt > "":
     #st.write("Length of text entered", len(txt), "Industry:",industry_option)
@@ -343,7 +343,10 @@ experienced.""")
     xaxis_title="Polarity",
     yaxis_title="Predicted helpfulness probability")
     st.plotly_chart(fig, use_container_width=True)
-    
+    st.markdown("""In general, users have a strong preference for reviews that aren't too subjective. 
+    With polarity, the picture is more nuanced. Most of the reviews have a positive tone, but users are somewhat more likely 
+    to rate less positive reviews as helpful (this is especially true for Tripadvisor). 
+    So, if you want a good Tripadvisor score, try being objective and somewhat critical""") 
     
     
     
